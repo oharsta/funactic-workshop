@@ -45,8 +45,12 @@
                 mvn clean install
                 cd client
                 yarn start
+
+                cd ../server
                 java -jar server/target/server-1.0.0-SNAPSHOT.jar
 
+                curl http://localhost:8080/actuator/info
+                curl http://localhost:8080/actuator/health
             </code></pre>
         </section>
         <section>
