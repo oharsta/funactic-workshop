@@ -36,7 +36,8 @@
             </ul>
             <br/>
             <br/>
-            <p>The frameworks above are mainstream, mature, proven <br/>and de facto standards in their respective
+            <p>The frameworks above are mainstream, mature, proven <br/>
+                and often considered de facto standards in their respective<br/>
                 area's</p>
         </section>
         <section>
@@ -100,6 +101,22 @@ java -jar target/server-1.0.0-SNAPSHOT.jar \
         <section>
             <img src="images/user.repo.java.png" alt="">
         </section>
+        <section>
+            <p>Create two implementations of <code>Magnolia</code>: one Mock and one semi-real that<br/>
+                uses code RestTemplate and an injected / configured base-url to retrieve<br/>the categories.<br/>
+                Inject the <code>Magnolia</code> into a <code>MagnoliaController</code>. Hint: controller constructors are
+                automatically autowired with <code>@Bean</code> annotated method in a <code>@Configuration</code><br/>
+                annotated class.
+                <br/><br/>
+            Ensure the mock implementation is used introducing a feature toggle and test with curl.<br/>
+            Ensure the real implementation is used and write a IntegrationTest using the<br/>
+                <code>io.rest-assured</code> library - hint: look at <code>CsofApplicationTests</code></p>
+        </section>
+        <section>
+            <pre><code class="hljs">
+                checkout step-3
+            </code></pre>
+        </section>
         <section>Refactor<br/>
             <code>MagnoliaControllerTest</code><br/>
             with<br/>
@@ -113,7 +130,11 @@ java -jar target/server-1.0.0-SNAPSHOT.jar \
                 "proxy": "http://localhost:8080",
             </code></pre>
             </section>
-
+        </section>
+        <section>
+            <pre><code class="hljs">
+                checkout step-4
+            </code></pre>
         </section>
         <section>
             <a href="https://sebastiandedeyne.com/forget-about-component-lifecycles-and-start-thinking-in-effects/"
