@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Spring Boot & React & Misc</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css">
+
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2>Prerequisites</h2>
+            <ul>
+                <li>Java version 1.8.0_x</li>
+                <li>Yarn 1.17.x</li>
+                <li>MongoDB 4.0.3_x</li>
+                <li>Node v8.12.0</li>
+                <li>Maven 3.6.1</li>
+                <li>Ansible 2.8.2</li>
+            </ul>
+            <br/>
+            <br/>
+            <h3>Optional - but recommended</h3>
+            <ul>
+                <li><a href="https://robomongo.org/download">Robo 3T</a></li>
+            </ul>
+            <br/>
+            <br/>
+            <p>The frameworks above are mainstream, mature, proven <br/>and de facto standards in their respective
+                area's</p>
+        </section>
+        <section>
+            <img src="images/spring_boot.png" alt="">
+        </section>
+        <section>
+            <pre><code class="hljs" data-line-numbers>
+@RestController
+public class MockUserController {
+
+    private static final Logger LOG =
+                LoggerFactory.getLogger(MockUserController.class);
+
+    @GetMapping("/api/users")
+    public List users() {
+        LOG.info("Returning all users");
+        return Arrays.asList(
+                new User("John Doe"),
+                new User("Mary Doe"));
+    }
+
+}
+            </code></pre>
+            <pre><code class="hljs" data-line-numbers>
+curl http://localhost:8080/api/users | jq .
+            </code></pre>
+        </section>
+        <section>
+            <img src="images/application.yml.png" alt="">
+        </section>
+        <section>
+            <img src="images/lombok.png" alt="">
+        </section>
+        <section>
+            <img src="images/user.java.png" alt="">
+        </section>
+        <section>
+            <img src="images/user.repo.java.png" alt="">
+        </section>
+        <section><pre><code class="hljs" data-line-numbers>
+java -jar target/server-1.0.0-SNAPSHOT.jar \
+--spring.config.location=./target/application_prod.yml
+        </code></pre>
+        </section>
+        <section>Refactor<br/>
+            <code>MagnoliaControllerTest</code><br/>
+            with<br/>
+            <code>@Profile</code><br/>
+        </section>
+        <section>
+            <a href="https://facebook.github.io/create-react-app/docs/getting-started" target="_blank">React</a>
+        </section>
+        <section>
+            <a href="https://sebastiandedeyne.com/forget-about-component-lifecycles-and-start-thinking-in-effects/"
+               target="_blank">React Effects</a>
+        </section>
+    </div>
+</div>
+
+<script src="js/reveal.js"></script>
+
+<script>
+  Reveal.initialize({
+    width: "100%",
+    height: "100%",
+    margin: 0,
+    minScale: 1,
+    maxScale: 1,
+
+    dependencies: [
+      {src: 'plugin/highlight/highlight.js', async: true}
+    ]
+  });
+</script>
+</body>
+</html>

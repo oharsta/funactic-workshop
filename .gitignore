@@ -1,0 +1,33 @@
+# IntelliJ
+*.iml
+*.idea
+local.properties
+
+# Eclipse
+.metadata
+/bin
+/tmp
+*.tmp
+*.bak
+*.swp
+*~.nib
+.settings/
+.loadpath
+
+# Log file
+*.log
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+/target
+
+# misc
+.DS_Store
+ansible
+TODO.txt
