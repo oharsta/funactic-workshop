@@ -7,19 +7,42 @@
     <artifactId>workshop</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
-  	<name>workshop</name>
-  	<description>Funatic Workshop</description>
+    <name>workshop</name>
+    <description>Funatic Workshop</description>
 
     <parent>
-  		<groupId>org.springframework.boot</groupId>
-  		<artifactId>spring-boot-starter-parent</artifactId>
-  		<version>2.1.6.RELEASE</version>
-  		<relativePath/>
-  	</parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.6.RELEASE</version>
+        <relativePath/>
+    </parent>
 
     <modules>
         <module>server</module>
         <module>client</module>
     </modules>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav-jackrabbit</artifactId>
+                <version>2.10</version>
+            </extension>
+        </extensions>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>openconext-releases</id>
+            <name>OpenConext public releases repository</name>
+            <url>dav:https://build.openconext.org/repository/public/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>openconext-snapshots</id>
+            <name>OpenConext public snapshot repository</name>
+            <url>dav:https://build.openconext.org/repository/public/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
