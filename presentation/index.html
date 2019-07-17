@@ -44,7 +44,6 @@
                 cd funactic-workshop
                 mvn clean install
                 cd client
-                yarn install
                 yarn start
                 java -jar server/target/server-1.0.0-SNAPSHOT.jar
 
@@ -107,6 +106,13 @@ java -jar target/server-1.0.0-SNAPSHOT.jar \
         </section>
         <section>
             <a href="https://facebook.github.io/create-react-app/docs/getting-started" target="_blank">React</a>
+            <section>
+                Add the following to package.json
+            <pre><code class="hljs">
+                "proxy": "http://localhost:8080",
+            </code></pre>
+            </section>
+
         </section>
         <section>
             <a href="https://sebastiandedeyne.com/forget-about-component-lifecycles-and-start-thinking-in-effects/"
