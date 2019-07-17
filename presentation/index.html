@@ -41,6 +41,7 @@
         <section>
             <pre><code class="hljs">
                 git clone git@github.com:oharsta/funactic-workshop.git
+                cd funactic-workshop
                 mvn clean install
                 cd client
                 yarn install
@@ -72,6 +73,14 @@ public class MockUserController {
             </code></pre>
             <pre><code class="hljs" data-line-numbers>
 curl http://localhost:8080/api/users | jq .
+            </code></pre>
+        </section>
+        <section>
+            <pre><code class="hljs" data-line-numbers>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
             </code></pre>
         </section>
         <section>
