@@ -15,8 +15,7 @@ public class EnvironmentController {
 
     @GetMapping(path = "/disclaimer", produces = "text/css")
     public String disclaimer() {
-        return "body::after {background: " + disclaimerBackgroundColor + ";content: \"" +
-                disclaimerContent + "\";}";
+        return "body::after {background: " + disclaimerBackgroundColor + ";content: \"" + disclaimerContent + "\";}";
     }
 
 }

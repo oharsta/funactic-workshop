@@ -32,6 +32,7 @@
             <h3>Optional - but recommended</h3>
             <ul>
                 <li><a href="https://robomongo.org/download">Robo 3T</a></li>
+                <li><a href="https://github.com/stedolan/jq">jq</a></li>
             </ul>
             <br/>
             <br/>
@@ -45,37 +46,41 @@
                 mvn clean install
                 cd client
                 yarn start
-
+                # new terminal
                 cd ../server
                 java -jar server/target/server-1.0.0-SNAPSHOT.jar
-
-                curl http://localhost:8080/actuator/info
-                curl http://localhost:8080/actuator/health
+                # new terminal
+                curl http://localhost:8080/actuator/info | jq .
+                curl http://localhost:8080/actuator/health | jq .
+                curl http://localhost:8080/disclaimer
             </code></pre>
         </section>
         <section>
             <img src="images/spring_boot.png" alt="">
         </section>
         <section>
+            <p>Add the following to <code>application.yml</code>:
+            <pre><code class="hljs">
+            server:
+                port: 8080
+        </code></pre>
+            </p>
+            <p>Copy the <code>application.yml</code> to the target directory<br/>
+                as <code></code>
+                change the port and run the following command.
+            </p>
             <pre><code class="hljs" data-line-numbers>
-@RestController
-public class MockUserController {
-
-    private static final Logger LOG =
-                LoggerFactory.getLogger(MockUserController.class);
-
-    @GetMapping("/api/users")
-    public List users() {
-        LOG.info("Returning all users");
-        return Arrays.asList(
-                new User("John Doe"),
-                new User("Mary Doe"));
-    }
-
-}
-            </code></pre>
+java -jar target/server-1.0.0-SNAPSHOT.jar \
+--spring.config.location=./target/application_prod.yml
+        </code></pre>
+            <p>Re-run the curl commands to test the port change.</p>
+        </section>
+        <section>
+            <p>Create a <code>csof.api.UserController</code> which returns<br/>
+                an array of two <code>csof.model.User</code> instances.</p>
+            <p>Hint: look at <code>csof.api.EnvironmentController</code>.</p>
             <pre><code class="hljs" data-line-numbers>
-curl http://localhost:8080/api/users | jq .
+            curl http://localhost:8080/api/users | jq .
             </code></pre>
         </section>
         <section>
@@ -90,18 +95,10 @@ curl http://localhost:8080/api/users | jq .
             <img src="images/application.yml.png" alt="">
         </section>
         <section>
-            <img src="images/lombok.png" alt="">
-        </section>
-        <section>
             <img src="images/user.java.png" alt="">
         </section>
         <section>
             <img src="images/user.repo.java.png" alt="">
-        </section>
-        <section><pre><code class="hljs" data-line-numbers>
-java -jar target/server-1.0.0-SNAPSHOT.jar \
---spring.config.location=./target/application_prod.yml
-        </code></pre>
         </section>
         <section>Refactor<br/>
             <code>MagnoliaControllerTest</code><br/>
@@ -112,7 +109,7 @@ java -jar target/server-1.0.0-SNAPSHOT.jar \
             <a href="https://facebook.github.io/create-react-app/docs/getting-started" target="_blank">React</a>
             <section>
                 Add the following to package.json
-            <pre><code class="hljs">
+                <pre><code class="hljs">
                 "proxy": "http://localhost:8080",
             </code></pre>
             </section>
