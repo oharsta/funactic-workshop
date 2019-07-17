@@ -6,6 +6,8 @@ Funactic Workshop
 
 ## [Getting started](#getting-started)
 
+`git checkout step-1`
+
 ### [System Requirements](#system-requirements)
 
 - Java 8
@@ -29,6 +31,9 @@ This project uses Spring Boot and Maven. To run locally, type:
 
 When developing, it's convenient to just execute the applications main-method, which is in [Application](server/src/main/java/csof/CsofApplication.java). Don't forget
 to set the active profile to dev.
+```
+-Dspring.profiles.active=dev
+```
 
 ### [The client](#client)
 

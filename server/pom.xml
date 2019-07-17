@@ -5,7 +5,7 @@
 
     <parent>
         <groupId>zilverline</groupId>
-        <artifactId>csof</artifactId>
+        <artifactId>workshop</artifactId>
         <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
