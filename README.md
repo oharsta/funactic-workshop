@@ -1,8 +1,8 @@
 # sd-csof
-[![Build Status](https://travis-ci.org/oharsta/sd-csof.svg)](https://travis-ci.org/oharsta/sd-csof)
-[![codecov.io](https://codecov.io/github/oharsta/sd-csof/coverage.svg)](https://codecov.io/github/oharsta/sd-csof)
+[![Build Status](https://travis-ci.org/oharsta/funactic-workshop.svg)](https://travis-ci.org/oharsta/funactic-workshop)
+[![codecov.io](https://codecov.io/github/oharsta/funactic-workshop/coverage.svg)](https://codecov.io/github/oharsta/funactic-workshop)
 
-Software Development - Current State Of Affairs / Constant State Of Flux
+Funactic Workshop
 
 ## [Getting started](#getting-started)
 
