@@ -28,7 +28,7 @@ import static org.awaitility.Awaitility.await;
 public abstract class AbstractIntegrationTest {
 
     @Autowired
-    private MongoTemplate mongoTemplate;
+    protected MongoTemplate mongoTemplate;
 
     @Autowired
     protected ObjectMapper objectMapper;

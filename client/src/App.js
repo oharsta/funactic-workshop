@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './App.scss';
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import UserPage from "./pages/UserPage";
+import {NewUser} from "./pages/NewUser";
 
 const Index = () => {
   return <h2>Home</h2>;
@@ -41,6 +42,9 @@ function AppRouter() {
             <li>
               <Link to="/users-page/">Users-page</Link>
             </li>
+            <li>
+              <Link to="/new-user/">New User</Link>
+            </li>
           </ul>
         </nav>
         <Switch>
@@ -48,6 +52,7 @@ function AppRouter() {
           <Route path="/about/" component={About}/>
           <Route path="/users/" component={Users}/>
           <Route path="/users-page/" component={UserPage}/>
+          <Route path="/new-user/" component={NewUser}/>
         </Switch>
       </div>
     </Router>

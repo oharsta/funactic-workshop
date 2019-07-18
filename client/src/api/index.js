@@ -16,14 +16,6 @@ function fetchJson(path, options = {}, headers = {}) {
     .then(res => res.json());
 }
 
-// function postPutJson(path, body, method) {
-//   return fetchJson(path, {method: method, body: JSON.stringify(body)});
-// }
-//
-// function fetchDelete(path) {
-//   return validFetch(path, {method: "delete"});
-// }
-
 //API
 export function userByName(name) {
   return fetchJson(`/api/users/search?name=${encodeURIComponent(name)}`);
@@ -31,4 +23,8 @@ export function userByName(name) {
 
 export function users() {
   return fetchJson("/api/users");
+}
+
+export function saveUser(user) {
+  return fetchJson("/api/users", {method: "POST", body: JSON.stringify(user)});
 }
