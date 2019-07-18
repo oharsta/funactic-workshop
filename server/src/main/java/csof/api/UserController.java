@@ -3,6 +3,7 @@ package csof.api;
 import csof.model.User;
 import csof.repository.UserRepository;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -19,5 +20,10 @@ public class UserController {
     @GetMapping("/api/users")
     public List<User> users() {
         return userRepository.findAll();
+    }
+
+    @GetMapping("/api/users/search")
+    public User search(@RequestParam String name) {
+        return userRepository.findOneByNameIgnoreCase(name);
     }
 }
