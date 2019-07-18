@@ -1,4 +1,4 @@
-package csof.magnolia;
+package csof.cms;
 
 import java.util.List;
 

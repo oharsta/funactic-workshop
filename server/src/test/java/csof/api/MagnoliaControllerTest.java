@@ -3,7 +3,6 @@ package csof.api;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import csof.AbstractIntegrationTest;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -18,6 +17,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.is;
 
+
 public class MagnoliaControllerTest extends AbstractIntegrationTest {
 
     @Rule
@@ -25,7 +25,6 @@ public class MagnoliaControllerTest extends AbstractIntegrationTest {
 
 
     @Test
-    @Ignore
     public void categories() throws JsonProcessingException {
         stubFor(get(urlEqualTo("/categories")).willReturn(aResponse().withStatus(200)
                 .withHeader("Content-type", "application/json")

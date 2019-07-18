@@ -22,7 +22,9 @@ import static org.awaitility.Awaitility.await;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         properties = {
-                "spring.data.mongodb.uri=mongodb://localhost:27017/csof_test"})
+                "spring.data.mongodb.uri=mongodb://localhost:27017/csof_test",
+                "magnolia.url=http://localhost:8091",
+                "magnolia.feature=true"})
 public abstract class AbstractIntegrationTest {
 
     @Autowired

@@ -10,6 +10,10 @@ spring:
   main:
     banner-mode: "off"
 
+magnolia:
+  url: https://magnolia.com
+  feature: false
+
 gui:
   disclaimer:
     background-color: red
