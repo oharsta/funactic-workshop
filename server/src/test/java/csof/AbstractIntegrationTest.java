@@ -23,7 +23,7 @@ import static org.awaitility.Awaitility.await;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         properties = {
                 "spring.data.mongodb.uri=mongodb://localhost:27017/csof_test"})
-public class AbstractIntegrationTest {
+public abstract class AbstractIntegrationTest {
 
     @Autowired
     private MongoTemplate mongoTemplate;
