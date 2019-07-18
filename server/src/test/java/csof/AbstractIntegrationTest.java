@@ -29,7 +29,7 @@ public abstract class AbstractIntegrationTest {
     private MongoTemplate mongoTemplate;
 
     @Autowired
-    private ObjectMapper objectMapper;
+    protected ObjectMapper objectMapper;
 
     @LocalServerPort
     protected int port;
