@@ -1,3 +1,15 @@
+logging:
+  level:
+    org.springframework.data.mongodb: INFO
+    org.springframework.security: INFO
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/csof_test
+  main:
+    banner-mode: "off"
+
 gui:
   disclaimer:
     background-color: red
