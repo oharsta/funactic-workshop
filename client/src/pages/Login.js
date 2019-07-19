@@ -30,8 +30,8 @@ export const Login = () => {
       <input type=" text" name=" name" value={name} onChange={e => setName(e.target.value)}/>
       <label htmlFor=" name">Password</label>
       <input type="password" name=" password" value={password} onChange={e => setPassword(e.target.value)}/>
-      {error && <em>Wrong username / password</em>}
       <button type=" submit" onClick={submit}>Submit</button>
+      {error && <em>Wrong username / password</em>}
     </div>
   )
 
