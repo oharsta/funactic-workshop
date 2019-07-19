@@ -28,3 +28,10 @@ export function users() {
 export function saveUser(user) {
   return fetchJson("/api/users", {method: "POST", body: JSON.stringify(user)});
 }
+
+export function login(name, password) {
+  return fetchJson("/api/login", {
+    method: "POST",
+    body: `username=${name}&password=${password}`
+  }, {"Content-Type": "application/x-www-form-urlencoded"});
+}

@@ -13,7 +13,7 @@ public class EnvironmentController {
     @Value("${gui.disclaimer.content}")
     private String disclaimerContent;
 
-    @GetMapping(path = "/disclaimer", produces = "text/css")
+    @GetMapping(path = "/api/disclaimer", produces = "text/css")
     public String disclaimer() {
         return "body::after {background: " + disclaimerBackgroundColor + ";content: \"" + disclaimerContent + "\";}";
     }

@@ -1,8 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import './App.scss';
+import {observer} from "mobx-react";
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import UserPage from "./pages/UserPage";
 import {NewUser} from "./pages/NewUser";
+import {ProtectedRoute} from "./ProtectedRoute";
+import {Login} from "./pages/Login";
+import {store} from "./Store";
 
 const Index = () => {
   return <h2>Home</h2>;
@@ -24,11 +28,11 @@ const Users = () => {
   return <div><h2>Users</h2>{users.map(user => <p key={user.id}>{user.name}</p>)}</div>;
 };
 
-function AppRouter() {
+const AppRouter = observer(() => {
   return (
     <Router>
       <div className="app">
-        <nav>
+        {store.currentUser && <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -46,18 +50,19 @@ function AppRouter() {
               <Link to="/new-user/">New User</Link>
             </li>
           </ul>
-        </nav>
+        </nav>}
         <Switch>
-          <Route path="/" exact component={Index}/>
-          <Route path="/about/" component={About}/>
-          <Route path="/users/" component={Users}/>
-          <Route path="/users-page/" component={UserPage}/>
-          <Route path="/new-user/" component={NewUser}/>
+          <ProtectedRoute path="/" exact component={Index}/>
+          <Route path="/login" exact component={Login}/>
+          <ProtectedRoute path="/about/" component={About}/>
+          <ProtectedRoute path="/users/" component={Users}/>
+          <ProtectedRoute path="/users-page/" component={UserPage}/>
+          <ProtectedRoute path="/new-user/" component={NewUser}/>
         </Switch>
       </div>
     </Router>
   );
-}
+});
 
 
 export default AppRouter;

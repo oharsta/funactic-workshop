@@ -21,6 +21,7 @@ public class UserControllerTest extends AbstractIntegrationTest {
     public void users() {
         given()
                 .when()
+                .filter(cookieFilter())
                 .get("/api/users")
                 .then()
                 .statusCode(SC_OK)
@@ -32,6 +33,7 @@ public class UserControllerTest extends AbstractIntegrationTest {
     public void user() {
         given()
                 .when()
+                .filter(cookieFilter())
                 .header(HttpHeaders.CONTENT_TYPE, "application/json")
                 .body(new User("David Doe"))
                 .post("/api/users")
@@ -45,6 +47,7 @@ public class UserControllerTest extends AbstractIntegrationTest {
     public void search() {
         given()
                 .when()
+                .filter(cookieFilter())
                 .param("name", "john doe")
                 .get("/api/users/search")
                 .then()
@@ -56,6 +59,7 @@ public class UserControllerTest extends AbstractIntegrationTest {
     public void searchNotFound() {
         given()
                 .when()
+                .filter(cookieFilter())
                 .param("name", "nope")
                 .get("/api/users/search")
                 .then()

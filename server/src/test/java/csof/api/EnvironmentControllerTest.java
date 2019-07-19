@@ -12,7 +12,7 @@ public class EnvironmentControllerTest extends AbstractIntegrationTest {
     public void disclaimer() {
         given()
                 .when()
-                .get("/disclaimer")
+                .get("/api/disclaimer")
                 .then()
                 .statusCode(SC_OK);
     }

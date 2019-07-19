@@ -32,6 +32,7 @@ public class MagnoliaControllerTest extends AbstractIntegrationTest {
 
         given()
                 .when()
+                .filter(cookieFilter())
                 .get("/api/categories")
                 .then()
                 .statusCode(SC_OK)

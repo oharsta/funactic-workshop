@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import csof.model.User;
 import io.restassured.RestAssured;
+import io.restassured.filter.cookie.CookieFilter;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
+import static io.restassured.RestAssured.given;
+import static org.apache.http.HttpStatus.SC_OK;
 import static org.awaitility.Awaitility.await;
 
 @RunWith(SpringRunner.class)
@@ -51,5 +54,16 @@ public abstract class AbstractIntegrationTest {
         await().until(() -> mongoTemplate.count(new Query(), "users") == users.size());
     }
 
+    protected CookieFilter cookieFilter() {
+        CookieFilter cookieFilter = new CookieFilter();
+        given()
+                .when()
+                .filter(cookieFilter)
+                .formParams("username", "admin", "password", "secret")
+                .post("/api/login")
+                .then()
+                .statusCode(SC_OK);
+        return cookieFilter;
+    }
 
 }

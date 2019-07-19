@@ -2,6 +2,7 @@ package csof.api;
 
 import csof.model.User;
 import csof.repository.UserRepository;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,4 +34,10 @@ public class UserController {
     public User user(@RequestBody() User user) {
         return userRepository.insert(user);
     }
+
+    @PostMapping("/api/login")
+    public Authentication login(Authentication authentication) {
+        return authentication;
+    }
+
 }
