@@ -2,18 +2,23 @@ package csof.api;
 
 import csof.AbstractIntegrationTest;
 import csof.model.User;
+import io.restassured.common.mapper.TypeRef;
 import org.junit.Test;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.http.HttpHeaders;
 
+import java.util.LinkedHashMap;
+
 import static io.restassured.RestAssured.given;
 import static org.apache.http.HttpStatus.SC_INTERNAL_SERVER_ERROR;
 import static org.apache.http.HttpStatus.SC_OK;
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class UserControllerTest extends AbstractIntegrationTest {
 
@@ -64,6 +69,16 @@ public class UserControllerTest extends AbstractIntegrationTest {
                 .get("/api/users/search")
                 .then()
                 .statusCode(SC_INTERNAL_SERVER_ERROR);
+    }
 
+    @Test
+    public void authorityOrdered() {
+        LinkedHashMap<String, Object> body = given()
+                .when()
+                .formParams("username", "admin", "password", "secret")
+                .post("/api/login")
+                .as(new TypeRef<LinkedHashMap<String, Object>>() {
+                });
+        assertThat(body.keySet(), contains("authenticated", "authorities", "name", "principal"));
     }
 }
