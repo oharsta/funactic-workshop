@@ -35,7 +35,7 @@ public class UserController implements OrderedMap {
     }
 
     @PostMapping("/api/users")
-    public User user(@RequestBody() User user) {
+    public User user(@RequestBody User user) {
         return userRepository.insert(user);
     }
 
