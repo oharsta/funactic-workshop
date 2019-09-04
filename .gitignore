@@ -31,3 +31,8 @@ local.properties
 .DS_Store
 ansible
 TODO.txt
+prod.yml
+client/build/
+client/node_modules/
+client/target/
+server/target/
